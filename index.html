@@ -104,6 +104,300 @@
             width: 100%;
         }
 
+        .cart-link {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: var(--spring-pink);
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 500px;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.3);
+            transition: right 0.4s ease;
+            overflow-y: auto;
+        }
+
+        .cart-modal.active { right: 0; }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,0.7);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-header {
+            padding: 2rem;
+            background: var(--chocolate);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+        }
+
+        .cart-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .cart-items { padding: 2rem; }
+
+        .cart-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--cream);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            border: 2px solid var(--spring-pink);
+        }
+
+        .cart-item-details { flex: 1; }
+
+        .cart-item-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--chocolate);
+        }
+
+        .cart-item-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--chocolate);
+            font-weight: 700;
+        }
+
+        .cart-item-remove {
+            background: var(--spring-pink);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #999;
+        }
+
+        .cart-empty-icon { font-size: 4rem; margin-bottom: 1rem; }
+
+        .cart-summary {
+            padding: 2rem;
+            border-top: 2px solid var(--spring-yellow);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .checkout-button {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--chocolate);
+            color: white;
+            border: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /* Checkout Modal */
+        .checkout-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,0.9);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .checkout-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .checkout-content {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .checkout-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--spring-pink), var(--spring-lavender));
+            border-radius: 20px 20px 0 0;
+        }
+
+        .checkout-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+        }
+
+        .checkout-body { padding: 2rem; }
+
+        .form-section { margin-bottom: 2rem; }
+
+        .form-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--chocolate);
+        }
+
+        .form-group { margin-bottom: 1.5rem; }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--spring-mint);
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .payment-option { display: none; }
+
+        .payment-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem;
+            border: 2px solid var(--spring-mint);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            gap: 0.5rem;
+        }
+
+        .payment-option:checked + .payment-label {
+            border-color: var(--spring-pink);
+            background: var(--spring-yellow);
+        }
+
+        .payment-icon { font-size: 1.5rem; }
+
+        .order-summary {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--spring-pink);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .place-order-button {
+            width: 100%;
+            padding: 1.3rem;
+            background: var(--chocolate);
+            color: white;
+            border: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .secure-badge {
+            text-align: center;
+            margin-top: 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
         /* Hero Section */
         .hero {
             margin-top: 80px;
@@ -542,6 +836,9 @@
                 <li><a href="#collectie">Collectie</a></li>
                 <li><a href="#workshop">Workshop</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="cart-link" onclick="openCart(); return false;">
+                    🛒 <span class="cart-count" id="cartCount">0</span>
+                </a></li>
             </ul>
         </nav>
     </header>
@@ -644,6 +941,132 @@
         <a href="#contact" class="cta-button">Vraag Informatie Aan</a>
     </section>
 
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h2>🧺 Winkelmandje</h2>
+            <button class="cart-close" onclick="closeCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <div class="cart-empty-icon">🛒</div>
+                <p>Je winkelmandje is leeg</p>
+            </div>
+        </div>
+        <div class="cart-summary" id="cartSummary" style="display: none;">
+            <div class="cart-total">
+                <span>Totaal</span>
+                <span id="cartTotal">€0,00</span>
+            </div>
+            <button class="checkout-button" onclick="openCheckout()">Afrekenen</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h2>🐰 Afrekenen</h2>
+            </div>
+            <div class="checkout-body">
+                <div class="form-section">
+                    <h3>📦 Verzendadres</h3>
+                    <div class="form-group">
+                        <label class="form-label">Volledige Naam</label>
+                        <input type="text" class="form-input" id="fullName" placeholder="Voor- en achternaam">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" id="email" placeholder="jouw@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Telefoonnummer</label>
+                        <input type="tel" class="form-input" id="phone" placeholder="+31 6 12345678">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Straat en Huisnummer</label>
+                        <input type="text" class="form-input" id="address" placeholder="Straatnaam 123">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Postcode</label>
+                            <input type="text" class="form-input" id="zipcode" placeholder="1234 AB">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Plaats</label>
+                            <input type="text" class="form-input" id="city" placeholder="Amsterdam">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Land</label>
+                        <select class="form-select" id="country">
+                            <option value="NL">Nederland</option>
+                            <option value="BE">België</option>
+                            <option value="DE">Duitsland</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>💳 Betaalmethode</h3>
+                    <div class="payment-methods">
+                        <div>
+                            <input type="radio" name="payment" value="ideal" id="ideal" class="payment-option" checked>
+                            <label for="ideal" class="payment-label">
+                                <span class="payment-icon">🏦</span>
+                                <span>iDEAL</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input type="radio" name="payment" value="card" id="card" class="payment-option">
+                            <label for="card" class="payment-label">
+                                <span class="payment-icon">💳</span>
+                                <span>Creditcard</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input type="radio" name="payment" value="paypal" id="paypal" class="payment-option">
+                            <label for="paypal" class="payment-label">
+                                <span class="payment-icon">🅿️</span>
+                                <span>PayPal</span>
+                            </label>
+                        </div>
+                        <div>
+                            <input type="radio" name="payment" value="applepay" id="applepay" class="payment-option">
+                            <label for="applepay" class="payment-label">
+                                <span class="payment-icon">🍎</span>
+                                <span>Apple Pay</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-summary">
+                    <h3 style="margin-bottom: 1rem;">Bestelling</h3>
+                    <div id="orderItems"></div>
+                    <div class="summary-row">
+                        <span>Subtotaal</span>
+                        <span id="orderSubtotal">€0,00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Verzendkosten</span>
+                        <span>Gratis</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Totaal</span>
+                        <span id="orderTotal">€0,00</span>
+                    </div>
+                </div>
+
+                <button class="place-order-button" onclick="placeOrder()">Bestelling Plaatsen 🎉</button>
+                <div class="secure-badge">🔒 Veilige betaling via SSL-encryptie</div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer id="contact">
         <div class="footer-content">
@@ -685,30 +1108,155 @@
     </footer>
 
     <script>
+        // Products data
+        const products = [
+            { id: 1, name: 'Klassiek Paas Ei - Large', price: 24.95 },
+            { id: 2, name: 'Paashaas Chocolade Set', price: 29.95 },
+            { id: 3, name: 'Mini Eieren Familie Set', price: 19.95 }
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('easterCart')) || [];
+
+        function updateCartCount() {
+            document.getElementById('cartCount').textContent = cart.length;
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            cart.push(product);
+            localStorage.setItem('easterCart', JSON.stringify(cart));
+            updateCartCount();
+            alert(`${product.name} toegevoegd aan winkelmandje! 🐰`);
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('easterCart', JSON.stringify(cart));
+            updateCartCount();
+            renderCart();
+        }
+
+        function renderCart() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartSummary = document.getElementById('cartSummary');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="cart-empty">
+                        <div class="cart-empty-icon">🛒</div>
+                        <p>Je winkelmandje is leeg</p>
+                    </div>
+                `;
+                cartSummary.style.display = 'none';
+                return;
+            }
+
+            cartItemsContainer.innerHTML = cart.map((item, index) => `
+                <div class="cart-item">
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-price">€${item.price.toFixed(2)}</div>
+                    </div>
+                    <button class="cart-item-remove" onclick="removeFromCart(${index})">×</button>
+                </div>
+            `).join('');
+
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            document.getElementById('cartTotal').textContent = `€${total.toFixed(2)}`;
+            cartSummary.style.display = 'block';
+        }
+
+        function openCart() {
+            document.getElementById('cartModal').classList.add('active');
+            document.getElementById('cartOverlay').classList.add('active');
+            renderCart();
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').classList.remove('active');
+            document.getElementById('cartOverlay').classList.remove('active');
+        }
+
+        function openCheckout() {
+            if (cart.length === 0) {
+                alert('Je winkelmandje is leeg!');
+                return;
+            }
+
+            closeCart();
+            document.getElementById('checkoutModal').classList.add('active');
+            
+            const orderItemsContainer = document.getElementById('orderItems');
+            orderItemsContainer.innerHTML = cart.map(item => `
+                <div class="summary-row">
+                    <span>${item.name}</span>
+                    <span>€${item.price.toFixed(2)}</span>
+                </div>
+            `).join('');
+
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            document.getElementById('orderSubtotal').textContent = `€${total.toFixed(2)}`;
+            document.getElementById('orderTotal').textContent = `€${total.toFixed(2)}`;
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.remove('active');
+        }
+
+        function placeOrder() {
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const zipcode = document.getElementById('zipcode').value;
+            const city = document.getElementById('city').value;
+
+            if (!fullName || !email || !phone || !address || !zipcode || !city) {
+                alert('Vul alle velden in! 🐰');
+                return;
+            }
+
+            const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+            alert(`🎉 Bestelling geplaatst!\n\nBetaalmethode: ${paymentMethod.toUpperCase()}\nTotaal: €${total.toFixed(2)}\n\nJe ontvangt een bevestiging op ${email}\n\nFijne Pasen! 🥚🐰`);
+
+            cart = [];
+            localStorage.setItem('easterCart', JSON.stringify(cart));
+            updateCartCount();
+            closeCheckout();
+        }
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
         });
 
         // Buy button functionality
-        document.querySelectorAll('.buy-button').forEach(button => {
+        document.querySelectorAll('.buy-button').forEach((button, index) => {
             button.addEventListener('click', function() {
-                const productCard = this.closest('.product-card');
-                const productTitle = productCard.querySelector('.product-title').textContent;
-                const productPrice = productCard.querySelector('.product-price').textContent;
-                
-                alert(`${productTitle} toegevoegd aan winkelwagen!\n\nPrijs: ${productPrice}\n\nWe werken aan de volledige webshop functionaliteit!`);
+                addToCart(index + 1);
             });
         });
+
+        document.getElementById('checkoutModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCheckout();
+            }
+        });
+
+        updateCartCount();
     </script>
 </body>
 </html>
